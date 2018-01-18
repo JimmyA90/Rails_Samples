@@ -1,0 +1,20 @@
+class StorefrontController < ApplicationController
+
+
+  def all_items
+  	@products = Product.all
+  end
+
+  def items_by_category
+
+  #to get to this page: catergorical_path(params[:category_id])
+
+  @products = Product.where(category: params[:category_id])
+  @category = Category.find(params[:category_id])
+
+end
+
+  def items_by_brand
+  	@brand = Brand.find(params[:brand_id])
+  end
+end
